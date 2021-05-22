@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/f">
+        <item android:id="@+id/nav_item_one"
+            android:title="My Profile" />
+    </group>
+    <group android:id="@+id/a">
+        <item android:id="@+id/nav_item_two"
+            android:title="Friends" />
+    </group>
+    <group android:id="@+id/b">
+        <item android:id="@+id/nav_item_six"
+            android:title="Friend Request" />
+    </group>
+    <group android:id="@+id/c">
+        <item android:id="@+id/nav_item_three"
+            android:title="Find Friends" />
+    </group>
+    <group android:id="@+id/d">
+        <item android:id="@+id/nav_item_four"
+            android:title="Chat" />
+    </group>
+    <group android:id="@+id/e">
+        <item android:id="@+id/nav_item_five"
+            android:title="Logout" />
+    </group>
+</menu>

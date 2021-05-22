@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_background"
+    tools:context=".UploadProfileImageActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/activity_upload_profile_image_imageview"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_margin="10dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"/>
+
+    <TextView
+        android:id="@+id/activity_upload_profile_image_uploadimage_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_upload_profile_image_imageview"
+        android:textColor="@color/white"
+        android:text="Upload Profile Image"
+        android:background="@drawable/input_text_round"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/activity_upload_profile_image_createaccount_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_upload_profile_image_uploadimage_textview"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:text="Create Account"
+        android:background="@drawable/input_text_round"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

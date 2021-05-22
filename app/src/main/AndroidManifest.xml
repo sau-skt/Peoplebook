@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="appdev.com.peoplebook">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Peoplebook">
+        <activity android:name=".ChangePasswordActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".DeletePostActivity" />
+        <activity android:name=".KnowMoreAboutMeActivity" />
+        <activity android:name=".FriendRequestsActivity" />
+        <activity android:name=".PostActivity" />
+        <activity android:name=".ProfileImageChangeActivity" />
+        <activity android:name=".UploadProfileImageActivity" />
+        <activity android:name=".OtherProfileActivity" />
+        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".FindFriendsActivity" />
+        <activity android:name=".FriendsActivity" />
+        <activity android:name=".MyProfileSettingsActivity" />
+        <activity android:name=".HomePageActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

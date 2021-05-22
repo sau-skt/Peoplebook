@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Peoplebook</string>
+    <string name="title_activity_home_page">HomePageActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+</resources>

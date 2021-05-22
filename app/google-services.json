@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "519427252950",
+    "project_id": "peoplebook-65c7c",
+    "storage_bucket": "peoplebook-65c7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519427252950:android:e17adcc1fdfe7771fedf77",
+        "android_client_info": {
+          "package_name": "appdev.com.peoplebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519427252950-ucf5no0jo84g9pmbd05js2anv0qk1va0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAit2lIrED5MrNQbpQ8XTWgJ2nGEYLTwYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519427252950-ucf5no0jo84g9pmbd05js2anv0qk1va0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

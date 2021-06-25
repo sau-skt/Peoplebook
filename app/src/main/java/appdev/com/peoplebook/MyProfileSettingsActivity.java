@@ -21,6 +21,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 
+import appdev.com.peoplebook.Models.PostModel;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static java.lang.Long.parseLong;
@@ -30,7 +31,7 @@ public class MyProfileSettingsActivity extends AppCompatActivity {
     EditText currentdateofbirth, currentname, currentphone, currentaboutme, currenthobbies;
     CircleImageView currentprofileimage;
     String username;
-    DatabaseReference usernamedatabasereference;
+    DatabaseReference usernamedatabasereference, homepagepostsdatabasereference;
     TextView saveTextview;
 
     @Override
@@ -41,6 +42,7 @@ public class MyProfileSettingsActivity extends AppCompatActivity {
         Widgets();
         username = getIntent().getStringExtra("username");
         usernamedatabasereference = FirebaseDatabase.getInstance("https://peoplebook-65c7c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Username").child(username);
+        homepagepostsdatabasereference = FirebaseDatabase.getInstance("https://peoplebook-65c7c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("HomepagePosts");
         InputUserDetails();
 
         currentdateofbirth.setInputType(InputType.TYPE_NULL);
@@ -84,7 +86,29 @@ public class MyProfileSettingsActivity extends AppCompatActivity {
         usernamedatabasereference.child("hobbies").setValue(hobbies);
         String dateofbirth = currentdateofbirth.getText().toString();
         usernamedatabasereference.child("dateofbirth").setValue(dateofbirth);
-        finish();
+        Updateuserdetailsinhomepageposts();
+    }
+
+    private void Updateuserdetailsinhomepageposts() {
+        homepagepostsdatabasereference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    PostModel postModel = snapshot.getValue(PostModel.class);
+                    String postusername = postModel.getUsername();
+                    if (postusername.equals(username)){
+                        String filename = postModel.getFilename();
+                        homepagepostsdatabasereference.child(filename).child("name").setValue(currentname.getText().toString());
+                    }
+                }
+                finish();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void InputUserDetails() {

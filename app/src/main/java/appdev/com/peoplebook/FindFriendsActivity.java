@@ -20,7 +20,8 @@ import appdev.com.peoplebook.Adapter.FindFriendsActivityAdapter;
 import appdev.com.peoplebook.Models.FindFriendsModel;
 import appdev.com.peoplebook.Models.PostModel;
 
-public class FindFriendsActivity extends AppCompatActivity {
+public class
+FindFriendsActivity extends AppCompatActivity {
     //Variables for Widgets
     RecyclerView recyclerView;
     ArrayList<String> names = new ArrayList<String>();

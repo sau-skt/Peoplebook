@@ -26,11 +26,12 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import appdev.com.peoplebook.Models.PostModel;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileImageChangeActivity extends AppCompatActivity {
     String username;
-    DatabaseReference usernamedatabasereference;
+    DatabaseReference usernamedatabasereference, homepagepostsdatabasereference;
     CircleImageView currentprofileimage;
     TextView changeprofileimage, save, discard;
     Uri ImageUri;
@@ -44,6 +45,7 @@ public class ProfileImageChangeActivity extends AppCompatActivity {
         Widgets();
         username = getIntent().getStringExtra("username");
         usernamedatabasereference = FirebaseDatabase.getInstance("https://peoplebook-65c7c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Username").child(username);
+        homepagepostsdatabasereference = FirebaseDatabase.getInstance("https://peoplebook-65c7c-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("HomepagePosts");
         profileimagestoragelocation = FirebaseStorage.getInstance("gs://peoplebook-65c7c.appspot.com").getReference().child(username).child(username + ".jpg");
 
         LoadCurrentImage();
@@ -84,6 +86,24 @@ public class ProfileImageChangeActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Uri> task) {
                         String profileImageUrl=task.getResult().toString();
                         usernamedatabasereference.child("profileimage").setValue(profileImageUrl);
+                        homepagepostsdatabasereference.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                                    PostModel postModel = snapshot.getValue(PostModel.class);
+                                    String postusername = postModel.getUsername();
+                                    if (postusername.equals(username)){
+                                        String filename = postModel.getFilename();
+                                        homepagepostsdatabasereference.child(filename).child("profileimage").setValue(profileImageUrl);
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
                 });
                 Toast.makeText(ProfileImageChangeActivity.this, "Profile Image Changed Successfully", Toast.LENGTH_SHORT).show();
